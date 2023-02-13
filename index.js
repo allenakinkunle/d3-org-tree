@@ -419,15 +419,19 @@ class OrgTree {
         })
 
 
-        if (attrs.root.children && attrs.collapsible) {
-            // Collapse all children at first
-            attrs.root.children.forEach(d => this.collapse(d));
+        if (attrs.collapsible) {
+            if (attrs.root.children) {
+                // Collapse all children at first
+                attrs.root.children.forEach(d => this.collapse(d));
 
-            // Then expand some nodes, which have `expanded` property set
-            attrs.root.children.forEach(d => this.expandSomeNodes(d));
+                // Then expand some nodes, which have `expanded` property set
+                attrs.root.children.forEach(d => this.expandSomeNodes(d));
+            }
         } else {
-            // Expand all children at first
-            attrs.root.children.forEach(d => this.expand(d));
+            if (attrs.root.children) {
+                // Expand all children at first
+                attrs.root.children.forEach(d => this.expand(d));
+            }
         }
 
         // *************************  DRAWING **************************
@@ -977,15 +981,19 @@ class OrgTree {
         // If node exists, set expansion flag
         if (node) node.data.expanded = expandedFlag;
 
-        if (attrs.root.children && attrs.collapsible) {
-            // Then collapse them all
-            attrs.root.children && attrs.root.children.forEach(d => this.collapse(d));
+        if (attrs.collapsible) {
+            if (attrs.root.children) {
+                // Then collapse them all
+                attrs.root.children && attrs.root.children.forEach(d => this.collapse(d));
 
-            // Then only expand nodes, which have expanded proprty set to true
-            attrs.root.children && attrs.root.children.forEach(ch => this.expandSomeNodes(ch));
+                // Then only expand nodes, which have expanded proprty set to true
+                attrs.root.children && attrs.root.children.forEach(ch => this.expandSomeNodes(ch));
+            }
         } else {
-            // Expand all nodes first
-            attrs.root.children && attrs.root.children.forEach(this.expand);
+            if (attrs.root.children) {
+                // Expand all nodes first
+                attrs.root.children && attrs.root.children.forEach(this.expand);
+            }
         }
 
         // Redraw graph
@@ -1045,15 +1053,19 @@ class OrgTree {
             })
         })
 
-        if (attrs.root.children && attrs.collapsible) {
-            // Then collapse them all
-            attrs.root.children && attrs.root.children.forEach(d => this.collapse(d));
+        if (attrs.collapsible) {
+            if (attrs.root.children) {
+                // Then collapse them all
+                attrs.root.children && attrs.root.children.forEach(d => this.collapse(d));
 
-            // Then only expand nodes, which have expanded proprty set to true
-            attrs.root.children && attrs.root.children.forEach(ch => this.expandSomeNodes(ch));
+                // Then only expand nodes, which have expanded proprty set to true
+                attrs.root.children && attrs.root.children.forEach(ch => this.expandSomeNodes(ch));
+            }
         } else {
-            // Expand all nodes first
-            attrs.root.children && attrs.root.children.forEach(this.expand);
+            if (attrs.root.children) {
+                // Expand all nodes first
+                attrs.root.children && attrs.root.children.forEach(this.expand);
+            }
         }
 
         // Redraw Graphs
