@@ -419,7 +419,7 @@ class OrgTree {
         })
 
 
-        if (attrs.collapsible) {
+        if (attrs.root.children && attrs.collapsible) {
             // Collapse all children at first
             attrs.root.children.forEach(d => this.collapse(d));
 
@@ -977,7 +977,7 @@ class OrgTree {
         // If node exists, set expansion flag
         if (node) node.data.expanded = expandedFlag;
 
-        if (attrs.collapsible) {
+        if (attrs.root.children && attrs.collapsible) {
             // Then collapse them all
             attrs.root.children && attrs.root.children.forEach(d => this.collapse(d));
 
@@ -1045,7 +1045,7 @@ class OrgTree {
             })
         })
 
-        if (attrs.collapsible) {
+        if (attrs.root.children && attrs.collapsible) {
             // Then collapse them all
             attrs.root.children && attrs.root.children.forEach(d => this.collapse(d));
 
